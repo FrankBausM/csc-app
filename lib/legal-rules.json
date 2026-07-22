@@ -1,0 +1,289 @@
+{
+  "_readme": "Zentrale, versionierte Rechtsgrundlage des Greenwashing-Scanners. Wird von lib/legalRules.ts geladen und dort typisiert/kompiliert (Regex-Strings -> RegExp). Bei Gesetzesänderungen NUR diese Datei bearbeiten, danach 'version' und 'lastReviewed' aktualisieren und einen Eintrag in 'changelog' ergänzen. Kein Code in Konsumenten (lib/appContext.ts etc.) muss dafür angefasst werden, solange sich nur Werte (nicht Feldnamen/Struktur) ändern.",
+  "meta": {
+    "version": "2026.07.1",
+    "lastReviewed": "2026-07-22",
+    "reviewedBy": "Franky (mit Claude-Recherche)"
+  },
+  "deadlines": {
+    "empcoAdopted": "2024-02-28",
+    "empcoTranspositionDeadline": "2026-03-27",
+    "empcoFullApplication": "2026-09-27",
+    "germanPartialEffect": "2026-06-19",
+    "notes": "EU-Richtlinie 2024/825 (EmpCo). Deutschland hat rechtzeitig vor der Transpositionsfrist (27.03.2026) umgesetzt: Drittes UWG-Änderungsgesetz, veröffentlicht 19.02.2026 (BGBl. 2026 I Nr. 43). Die meisten Regeln gelten ab 27.09.2026, einzelne Teile bereits ab 19.06.2026. Keine Übergangsfrist für Altbestände."
+  },
+  "sanctions": {
+    "maxFinePercentOfRevenue": 4,
+    "notes": "Bußgelder bis zu 4% des Jahresumsatzes; zusätzlich Abmahnungen, Unterlassungsklagen, möglicher Ausschluss von öffentlichen Aufträgen."
+  },
+  "germanImplementation": {
+    "law": "Drittes Gesetz zur Änderung des Gesetzes gegen den unlauteren Wettbewerb (UWG)",
+    "bgblReference": "BGBl. 2026 I Nr. 43",
+    "publishedDate": "2026-02-19",
+    "implementsDirective": "EU 2024/825 (EmpCo)"
+  },
+  "legalCases": {
+    "bgh-2024-06-kompensation": {
+      "court": "Bundesgerichtshof (BGH)",
+      "date": "2024-06",
+      "gist": "Werbung mit 'Klimaneutralität', die allein auf CO2-Kompensation beruht (statt auf Vermeidung/Reduktion), ist irreführend, wenn dies nicht transparent erläutert wird."
+    }
+  },
+  "sources": {
+    "EmpCo-Richtlinie": {
+      "url": "https://eur-lex.europa.eu/eli/dir/2024/825/oj?locale=de",
+      "label": "EmpCo-Richtlinie (EU) 2024/825 — EUR-Lex Volltext"
+    },
+    "EmpCo-Richtlinie-PDF": {
+      "url": "https://eur-lex.europa.eu/legal-content/DE/TXT/PDF/?uri=OJ:L_202400825",
+      "label": "EmpCo-Richtlinie — PDF-Download"
+    },
+    "CSRD": {
+      "url": "https://eur-lex.europa.eu/eli/dir/2022/2464/oj/deu",
+      "label": "CSRD — Corporate Sustainability Reporting Directive"
+    },
+    "EU-Taxonomie": {
+      "url": "https://eur-lex.europa.eu/eli/reg/2020/852/oj/deu",
+      "label": "EU-Taxonomie-Verordnung 2020/852"
+    },
+    "UWG": {
+      "url": "https://www.gesetze-im-internet.de/uwg_2004/",
+      "label": "UWG — Gesetz gegen den unlauteren Wettbewerb"
+    },
+    "BGBl. 2026 I Nr. 43": {
+      "url": "https://www.recht.bund.de/bgbl/1/2026/43",
+      "label": "BGBl. 2026 I Nr. 43 — 3. UWG-Änderungsgesetz"
+    },
+    "BGH": {
+      "url": "https://www.bundesgerichtshof.de/",
+      "label": "Bundesgerichtshof — Rechtsprechung"
+    },
+    "EN ISO 14024": {
+      "url": "https://www.iso.org/standard/72458.html",
+      "label": "ISO 14024 — Umweltkennzeichnungen Typ I"
+    },
+    "ISO 14024": {
+      "url": "https://www.iso.org/standard/72458.html",
+      "label": "ISO 14024 — Umweltkennzeichnungen Typ I"
+    },
+    "ISO 14064": {
+      "url": "https://www.iso.org/standard/66453.html",
+      "label": "ISO 14064 — Treibhausgasbilanzierung"
+    },
+    "ISO 14064-3": {
+      "url": "https://www.iso.org/standard/66455.html",
+      "label": "ISO 14064-3 — Validierung und Verifizierung von Treibhausgasbilanzen"
+    },
+    "ISO 14067": {
+      "url": "https://www.iso.org/standard/71206.html",
+      "label": "ISO 14067 — Carbon Footprint von Produkten"
+    },
+    "ISO 14046": {
+      "url": "https://www.iso.org/standard/43263.html",
+      "label": "ISO 14046 — Water Footprint"
+    },
+    "ISO 14040": {
+      "url": "https://www.iso.org/standard/37456.html",
+      "label": "ISO 14040 — Ökobilanz: Prinzipien und Rahmenbedingungen"
+    },
+    "ISO 14044": {
+      "url": "https://www.iso.org/standard/38498.html",
+      "label": "ISO 14044 — Ökobilanz: Anforderungen und Anleitungen"
+    },
+    "ISO 14001": {
+      "url": "https://www.iso.org/standard/60857.html",
+      "label": "ISO 14001 — Umweltmanagementsysteme"
+    },
+    "EU Ecolabel": {
+      "url": "https://environment.ec.europa.eu/topics/circular-economy/eu-ecolabel-home_en",
+      "label": "EU Ecolabel — Offizielle Seite der EU-Kommission"
+    },
+    "Blauer Engel": {
+      "url": "https://www.blauer-engel.de/",
+      "label": "Blauer Engel — Offizielles Umweltzeichen"
+    },
+    "Science Based Targets": {
+      "url": "https://sciencebasedtargets.org/",
+      "label": "Science Based Targets initiative (SBTi)"
+    },
+    "SBTi": {
+      "url": "https://sciencebasedtargets.org/",
+      "label": "Science Based Targets initiative"
+    },
+    "B Corp": {
+      "url": "https://www.bcorporation.net/",
+      "label": "B Corp Certification"
+    },
+    "FSC": {
+      "url": "https://www.fsc.org/",
+      "label": "Forest Stewardship Council"
+    },
+    "MSC": {
+      "url": "https://www.msc.org/",
+      "label": "Marine Stewardship Council"
+    },
+    "GOTS": {
+      "url": "https://global-standard.org/",
+      "label": "Global Organic Textile Standard"
+    },
+    "Cradle to Cradle": {
+      "url": "https://c2ccertified.org/",
+      "label": "Cradle to Cradle Certified"
+    },
+    "EMAS": {
+      "url": "https://ec.europa.eu/environment/emas/index_en.htm",
+      "label": "EMAS — Eco-Management and Audit Scheme"
+    },
+    "Nordic Swan": {
+      "url": "https://www.nordic-ecolabel.org/",
+      "label": "Nordic Swan Ecolabel"
+    },
+    "Österreichisches Umweltzeichen": {
+      "url": "https://www.umweltzeichen.at/",
+      "label": "Österreichisches Umweltzeichen"
+    },
+    "Gold Standard": {
+      "url": "https://www.goldstandard.org/",
+      "label": "Gold Standard — Klimaschutzprojekte"
+    },
+    "VCS": {
+      "url": "https://verra.org/programs/verified-carbon-standard/",
+      "label": "Verified Carbon Standard (VCS)"
+    },
+    "GHG Protocol": {
+      "url": "https://ghgprotocol.org/",
+      "label": "Greenhouse Gas Protocol"
+    },
+    "Changing Markets Foundation": {
+      "url": "https://changingmarkets.org/",
+      "label": "Changing Markets Foundation"
+    },
+    "Umweltbundesamt Greenwashing": {
+      "url": "https://www.umweltbundesamt.de/themen/staerkerer-schutz-vor-greenwashing-in-deutsches",
+      "label": "Umweltbundesamt — Stärkerer Schutz vor Greenwashing in deutsches Recht"
+    },
+    "Eagle LSP Green Claims": {
+      "url": "https://eagle-lsp.de/green-claims-directive/",
+      "label": "Eagle LSP — Alles zu EmpCo"
+    },
+    "Textile Exchange Materials Report 2025": {
+      "url": "https://textileexchange.org/materials-market-report/",
+      "label": "Textile Exchange — Materials Market Report 2025"
+    },
+    "CSRD/ESRS 2026": {
+      "url": "https://eur-lex.europa.eu/eli/dir/2022/2464/oj/deu",
+      "label": "CSRD/ESRS — Berichtspflichten ab 2026"
+    },
+    "Bundeszentrale für politische Bildung (LPB)": {
+      "url": "https://www.bpb.de/",
+      "label": "Bundeszentrale für politische Bildung — Greenwashing-Einordnung"
+    },
+    "PwC Sustainability Analysis": {
+      "url": "https://www.pwc.de/de/nachhaltigkeit.html",
+      "label": "PwC — Sustainability Analysis"
+    }
+  },
+  "bannedTerms": [
+    "umweltfreundlich", "klimafreundlich", "energieeffizient", "natürlich",
+    "biologisch abbaubar", "klimaneutral", "klimapositiv", "ökologisch", "grün", "nachhaltig",
+    "eco", "öko", "umweltschonend", "klimaschonend", "co2-neutral",
+    "emissionsfrei", "emissionslos", "co2-frei", "treibhausgasfrei"
+  ],
+  "approvedLabels": [
+    "eu ecolabel", "blauer engel", "österreichisches umweltzeichen", "nordic swan",
+    "fsc", "msc", "bluesign", "gots", "cradle to cradle", "b corp",
+    "iso 14001", "iso 14024", "iso 14067", "emas", "science based targets"
+  ],
+  "greenwashingIndicators": {
+    "absoluteWords": [
+      "alle", "100%", "komplett", "vollständig", "immer", "niemals", "nie",
+      "keinerlei", "absolut", "garantiert", "total", "ganz", "durchweg", "fundamental",
+      "gesamt", "gesamte", "gesamten", "gesamter", "gesamtes", "sämtliche", "jede", "jeder", "jedes"
+    ],
+    "superlatives": [
+      "grünste", "nachhaltigste", "umweltfreundlichste", "sauberste", "ökologischste",
+      "beste", "führend", "nummer eins", "marktführer", "vorreiter",
+      "erste", "erster", "erstes", "ersten", "einzige", "einziger", "einziges", "einzigen"
+    ],
+    "redFlags": [
+      {
+        "id": "empco-klimaneutral-unqualifiziert",
+        "pattern": "klimaneutral(?!.*vermeid|.*reduktion|.*emission.*reduzier)",
+        "flags": "i",
+        "risk": 92,
+        "type": "EMPCO_COMPENSATION",
+        "legalBasis": "bgh-2024-06-kompensation"
+      },
+      {
+        "id": "empco-co2-kompensation-klimaneutral",
+        "pattern": "CO₂.*kompensation|kompensation.*klimaneutral",
+        "flags": "i",
+        "risk": 90,
+        "type": "EMPCO_COMPENSATION",
+        "legalBasis": "bgh-2024-06-kompensation"
+      },
+      {
+        "id": "empco-co2-ausgleich-neutral",
+        "pattern": "co2.*ausgleich.*neutral",
+        "flags": "i",
+        "risk": 88,
+        "type": "EMPCO_COMPENSATION",
+        "legalBasis": "bgh-2024-06-kompensation"
+      },
+      {
+        "id": "empco-100-nachhaltig-unbelegt",
+        "pattern": "100%.*nachhaltig(?!.*eu ecolabel|.*iso|.*zertifiziert)",
+        "flags": "i",
+        "risk": 86,
+        "type": "EMPCO_UNSUBSTANTIATED",
+        "legalBasis": "EmpCo-Richtlinie"
+      },
+      {
+        "id": "empco-100-recycelt-unbelegt",
+        "pattern": "100%.*recycelt(?!.*zertifiziert|.*audit|.*din)",
+        "flags": "i",
+        "risk": 82,
+        "type": "EMPCO_UNSUBSTANTIATED",
+        "legalBasis": "EmpCo-Richtlinie"
+      },
+      {
+        "id": "empco-vollstaendig-umweltfreundlich",
+        "pattern": "vollständig.*umweltfreundlich",
+        "flags": "i",
+        "risk": 84,
+        "type": "EMPCO_UNSUBSTANTIATED",
+        "legalBasis": "EmpCo-Richtlinie"
+      },
+      {
+        "id": "empco-eigenes-siegel",
+        "pattern": "eigenes.*siegel|hauseigenes.*label|interne.*zertifizierung",
+        "flags": "i",
+        "risk": 85,
+        "type": "EMPCO_DUBIOUS_SEAL",
+        "legalBasis": "EmpCo-Richtlinie"
+      },
+      {
+        "id": "empco-gesetzliche-pflicht-als-besonderheit",
+        "pattern": "besonders.*gesetzlich|spezielle.*vorschrift.*erfüllt",
+        "flags": "i",
+        "risk": 75,
+        "type": "EMPCO_LEGAL_MINIMUM",
+        "legalBasis": "EmpCo-Richtlinie"
+      }
+    ],
+    "greenwashPhrases": [
+      { "phrase": "nachhaltig", "context": "without EU Ecolabel or ISO 14024" },
+      { "phrase": "grün", "context": "without certification" },
+      { "phrase": "bio", "context": "uncertified" },
+      { "phrase": "ökologisch", "context": "unsubstantiated" },
+      { "phrase": "natürlich", "context": "legally unprotected" },
+      { "phrase": "umweltfreundlich", "context": "without recognized proof" }
+    ]
+  },
+  "changelog": [
+    {
+      "date": "2026-07-22",
+      "change": "Erste Version von legal-rules.json angelegt: bestehende EmpCo/UWG-Kriterien aus lib/appContext.ts und lib/regulatorySources.ts in eine zentrale, versionierte Datei überführt. Keine inhaltlichen Änderungen an den Kriterien selbst."
+    }
+  ]
+}
