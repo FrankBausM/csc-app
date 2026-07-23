@@ -16,5 +16,5 @@
     "plugins": [{ "name": "next" }]
   },
   "include": ["**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "**/page_old.tsx", "**/*_OLD.tsx", "**/*_OLD.jsx"]
 }

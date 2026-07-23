@@ -30,7 +30,7 @@ export default function DashboardPage() {
     
     if (scrollToClaimId) {
       // Prüfe ob Claim in einem Projekt ist (defensive check für undefined)
-      const claimInProject = appContext.claims?.find(c => `claim-${c.id}` === scrollToClaimId);
+      const claimInProject = appContext.analyzedClaims?.find(c => `claim-${c.id}` === scrollToClaimId);
       
       if (claimInProject?.projectId) {
         // Klappe das Projekt auf
