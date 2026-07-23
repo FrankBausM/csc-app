@@ -30,6 +30,7 @@ export interface AnalyzedClaim {
   explanation: string;
   suggestedRewrite: string;
   violations?: RuleViolation[];
+  linkedClaims?: string[]; // Erkannte Greenwashing-Muster/Probleme (Anzeige in claim-detail)
   source: "manual" | "url" | "fulltext";
   sourceUrl?: string;
   projectId?: string; // Verknüpfung zu FulltextProject
