@@ -28,11 +28,13 @@ export function Button({
   onClick,
   variant = "primary",
   disabled = false,
+  style,
 }: {
   children: React.ReactNode;
   onClick?: () => void;
   variant?: "primary" | "secondary" | "danger";
   disabled?: boolean;
+  style?: React.CSSProperties;
 }) {
   const styles: Record<string, React.CSSProperties> = {
     primary: {
@@ -67,6 +69,7 @@ export function Button({
         transition: "all 0.2s ease",
         opacity: disabled ? 0.5 : 1,
         ...styles[variant],
+        ...style,
       }}
     >
       {children}
