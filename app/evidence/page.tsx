@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { SectionTitle, TextInput, Button } from "../../components/ui";
-import { SourceLink, LinkedRegulatoryText } from "../../components/SourceLink";
+import { SourceLink } from "../../components/SourceLink";
 import { useAppContext } from "../AppContext";
 import { RiskBadge } from "../../components/HighlightedText";
 
@@ -169,8 +169,6 @@ export default function EvidencePage() {
               value={formData.title}
               onChange={(e) => setFormData({ ...formData, title: e.target.value })}
             />
-                      <LinkedRegulatoryText text={claim.explanation} />
-                    
 
             <TextInput
               label="Ausstellende Organisation"
