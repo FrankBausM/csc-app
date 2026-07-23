@@ -311,6 +311,9 @@ function generateAutoTitle(claims) {
 // ============================================================
 // HAUPTKOMPONENTE: Export-Buttons für die Reports-Seite
 // ============================================================
+/**
+ * @param {{ claims?: any[] }} props
+ */
 export default function ExportFormats({ claims = [] }) {
   const [exportType, setExportType] = useState(null); // 'pdf' | 'word' | null
   const [isExporting, setIsExporting] = useState(false);

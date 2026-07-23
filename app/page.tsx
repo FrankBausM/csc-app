@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { MetricCard, SectionTitle, Button } from "../components/ui";
 import { RiskBadge } from "../components/HighlightedText";
@@ -12,7 +12,7 @@ import { useAppContext } from "./AppContext";
 
 type FilterType = "all" | "critical" | "high" | "medium" | "low";
 
-export default function DashboardPage() {
+function DashboardPageContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const appContext = useAppContext();
@@ -32,11 +32,12 @@ export default function DashboardPage() {
       // Prüfe ob Claim in einem Projekt ist (defensive check für undefined)
       const claimInProject = appContext.analyzedClaims?.find(c => `claim-${c.id}` === scrollToClaimId);
       
-      if (claimInProject?.projectId) {
+      const projectIdToExpand = claimInProject?.projectId;
+      if (projectIdToExpand) {
         // Klappe das Projekt auf
         setExpandedProjects(prev => {
           const newSet = new Set(prev);
-          newSet.add(claimInProject.projectId);
+          newSet.add(projectIdToExpand);
           return newSet;
         });
       }
@@ -982,5 +983,13 @@ export default function DashboardPage() {
         </section>
       )}
     </main>
+  );
+}
+
+export default function DashboardPage() {
+  return (
+    <Suspense fallback={null}>
+      <DashboardPageContent />
+    </Suspense>
   );
 }

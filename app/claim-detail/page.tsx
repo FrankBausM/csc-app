@@ -6,9 +6,9 @@ import { RiskBadge } from "../../components/HighlightedText";
 import { ViolationDetails } from "../../components/ViolationDetails";
 import { SourceLink, LinkedRegulatoryText } from "../../components/SourceLink";
 import { useAppContext } from "../AppContext";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 
-export default function ClaimDetailPage() {
+function ClaimDetailPageContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const appContext = useAppContext();
@@ -488,5 +488,13 @@ export default function ClaimDetailPage() {
         </div>
       </section>
     </main>
+  );
+}
+
+export default function ClaimDetailPage() {
+  return (
+    <Suspense fallback={null}>
+      <ClaimDetailPageContent />
+    </Suspense>
   );
 }

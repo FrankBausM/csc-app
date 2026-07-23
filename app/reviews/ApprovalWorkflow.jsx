@@ -328,6 +328,9 @@ function StatusFilterBar({ counts, activeFilter, onFilter }) {
 }
 
 // HAUPTKOMPONENTE
+/**
+ * @param {{ reviews?: any[] }} props
+ */
 export default function ApprovalWorkflow({ reviews: initialReviews = [] }) {
   const [reviews, setReviews] = useState(() =>
     initialReviews.map(r => ({

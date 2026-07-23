@@ -305,7 +305,7 @@ export function RiskDashboardCharts({ claims }: RiskDashboardChartsProps) {
                   cx="50%"
                   cy="50%"
                   labelLine={false}
-                  label={({ label, value, percent }) => `${label}: ${value} (${(percent * 100).toFixed(0)}%)`}
+                  label={(props: any) => `${props.label}: ${props.value} (${(props.percent * 100).toFixed(0)}%)`}
                   outerRadius={90}
                   fill="#8884d8"
                   dataKey="value"

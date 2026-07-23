@@ -31,7 +31,7 @@ export function Button({
   style,
 }: {
   children: React.ReactNode;
-  onClick?: () => void;
+  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
   variant?: "primary" | "secondary" | "danger";
   disabled?: boolean;
   style?: React.CSSProperties;
