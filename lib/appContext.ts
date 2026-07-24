@@ -1074,7 +1074,7 @@ export const extractClaimsFromText = (text: string): string[] => {
   
   // VERBESSERT: Schütze Abkürzungen vor falscher Satz-Trennung
   let processedText = text
-    .replace(/\b(z\.B|d\.h|u\.a|i\.d\.R|etc|usw|inkl|evtl|ggf|bzgl|bzw|ca|Dr|Prof|GmbH|AG|UG)\./gi, 
+    .replace(/\b(z\.B|d\.h|u\.a|i\.d\.R|etc|usw|inkl|evtl|ggf|bzgl|bzw|ca|Dr|Prof|GmbH|AG|UG|Nr|Art|Abs|Mio|Mrd|Str|Ing|Co)\./gi,
       (match) => match.replace('.', '___DOT___'));
   
   // Simple sentence splitter - splittet bei Satzzeichen
