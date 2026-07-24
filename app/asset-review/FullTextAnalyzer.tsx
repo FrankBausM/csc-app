@@ -104,9 +104,12 @@ export default function FullTextAnalyzer() {
     setSelectedFinding(null);
 
     // Text in Sätze aufteilen
-    const sentences = inputText
+    // Schütze Abkürzungen (Nr., Dr., GmbH, ...) vor falscher Satztrennung
+    const abbrevPattern = /\b(z\.B|d\.h|u\.a|i\.d\.R|etc|usw|inkl|evtl|ggf|bzgl|bzw|ca|Dr|Prof|GmbH|AG|UG|Nr|Art|Abs|Mio|Mrd|Str|Ing|Co)\./gi;
+    const protectedText = inputText.replace(abbrevPattern, (m) => m.replace(".", "___DOT___"));
+    const sentences = protectedText
       .split(/[.!?]+/)
-      .map((s) => s.trim())
+      .map((s) => s.trim().replace(/___DOT___/g, "."))
       .filter((s) => s.length > 15);
 
     const results: Finding[] = [];
