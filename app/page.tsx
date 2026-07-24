@@ -449,8 +449,8 @@ function DashboardPageContent() {
                   lineHeight: 1.6
                 }}>
                   ⚖️ <strong>Rechtlicher Hinweis:</strong> Diese App basiert auf der 
-                  EmpCo-Richtlinie (verbindlich ab 27.09.2026 — bereits in deutsches Recht umgesetzt) und deutschem UWG. 53-56% aller 
-                  Nachhaltigkeits-Claims enthalten irreführende Aussagen – diese App hilft Ihnen, 
+                  EmpCo-Richtlinie (verbindlich ab 27.09.2026 — bereits in deutsches Recht umgesetzt) und deutschem UWG. 53% aller
+                  untersuchten Umweltaussagen sind laut EU-Kommission (2020) vage, irreführend oder unbelegt – diese App hilft Ihnen,
                   rechtssichere Kommunikation zu gewährleisten.
                 </div>
                 

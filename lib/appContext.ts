@@ -148,7 +148,7 @@ const loadCustomPatterns = (): CustomPattern[] => {
  * - 78: Gesetzliche Pflichten als Besonderheit dargestellt
  * - 75: Absolute Aussage ohne Qualifikation
  * - 75: Superlativ ohne unabhängige Verifizierung
- * - 72: Vage Aussagen ohne Belege (53-56% solcher Claims sind irreführend)
+ * - 72: Vage Aussagen ohne Belege (53% solcher Claims sind irreführend, EU-Kommission 2020)
  * - 70: Leuchtturm-Produkt Pattern (nur einzelne Produkte nachhaltig)
  * - 65: Verzögerungstaktiken ("weitere Forschung nötig")
  * - 60: Grüne Bildsprache ohne substantiellen Inhalt
@@ -441,7 +441,7 @@ export const analyzeClaim = (text: string, claimType?: string): Omit<Claim, 'id'
   // NUR als vage markieren, wenn es eine ABSOLUTE Aussage OHNE Qualifikation ist
   if (hasEnvironmentTermsVague && !hasEvidenceMarkers && hasAbsoluteContext && !hasQualifiedContext) {
     baseRiskScore = Math.max(baseRiskScore, 72);
-    detectedIssues.push("📋 Vage absolute Umweltaussage ohne Beleg (53-56% solcher Claims sind irreführend)");
+    detectedIssues.push("📋 Vage absolute Umweltaussage ohne Beleg (53% solcher Claims sind irreführend, EU-Kommission 2020)");
   } else if (hasEnvironmentTermsVague && hasQualifiedContext && !hasEvidenceMarkers) {
     // Qualifizierte Aussagen ohne Zertifikat sind niedrigeres Risiko
     baseRiskScore = Math.max(baseRiskScore, 35);
