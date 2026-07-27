@@ -192,7 +192,8 @@
   "approvedLabels": [
     "eu ecolabel", "blauer engel", "österreichisches umweltzeichen", "nordic swan",
     "fsc", "msc", "bluesign", "gots", "cradle to cradle", "b corp",
-    "iso 14001", "iso 14024", "iso 14067", "emas", "science based targets"
+    "iso 14001", "iso 14024", "iso 14067", "emas", "science based targets",
+    "tüv", "dekra", "sgs", "dqs", "ökotest", "stiftung warentest"
   ],
   "greenwashingIndicators": {
     "absoluteWords": [
